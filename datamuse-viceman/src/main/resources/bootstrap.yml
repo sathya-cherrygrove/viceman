@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: datamuse-viceman
+eureka:
+  client:
+    service-url:
+       defaultZone: http://eurekaserver-viceman:8761/eureka       

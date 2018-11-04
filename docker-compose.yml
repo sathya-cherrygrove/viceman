@@ -1,0 +1,31 @@
+version: "2.1"
+services:
+  eurekaserver-viceman:
+    build: ./eurekaserver-viceman
+    ports:
+      - 8761:8761
+  datamuse-viceman:
+    build: ./datamuse-viceman
+    ports:
+     - 8080:8080
+    depends_on:
+      - eurekaserver-viceman
+    links:
+      - eurekaserver-viceman
+  wordselector-viceman:
+    build: ./wordselector-viceman
+    ports:
+     - 8081:8081
+    depends_on:
+     - eurekaserver-viceman
+    links:
+     - eurekaserver-viceman
+  zuulgateway-viceman:
+    build: ./zuulgateway-viceman
+    ports: 
+     - 8090:8090
+    depends_on:
+     - eurekaserver-viceman
+    links:
+     - eurekaserver-viceman
+
