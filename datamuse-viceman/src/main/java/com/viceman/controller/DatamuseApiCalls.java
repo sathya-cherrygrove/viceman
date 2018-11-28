@@ -33,8 +33,8 @@ public class DatamuseApiCalls {
 
 		List<synonym> wordlist = response.getBody();
 		String wordResponse = "";
-		wordResponse = "datemuse-viceman-getwordmeaning"+wordlist.stream().limit(5).map(x -> x.getWord()).collect(Collectors.joining("  "));
-		return wordResponse;
+		wordResponse = wordlist.stream().limit(5).map(x -> x.getWord()).collect(Collectors.joining("  "));
+		return "Service: datamuse-viceman-getwordmeaning|" +"word :"+ word + " Word Meaning : " + wordResponse;
 
 	}
 

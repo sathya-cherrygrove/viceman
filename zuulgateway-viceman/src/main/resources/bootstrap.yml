@@ -1,11 +1,45 @@
 spring:
   application:
-    name: zuulgateway-viceman
+    name: zuulgateway
 server:
-  port: 8090
+  port: 8079
 eureka:
   client:
     service-url:
       defaultZone: http://eurekaserver-viceman:8761/eureka
+
+zuul:
+  routes:
+    wordselector:
+       path: /wordselector/**
+       serviceId: WORDSELECTOR
+    datamuse:
+       path: /datamuse/** 
+       serviceId: DATAMUSE  
+       
+hystrix:
+ metrics:
+   enabled: true
+ command:
+   default:
+     execution:
+       isolation:
+         strategy: THREAD
+         thread:
+           timeoutInMilliseconds: 15000
+  
+          
+ribbon:
+  eureka:
+    enabled: true
+  ConnectTimeout: 60000
+  ReadTimeout: 600000   
+  
+
+      
+
+      
+          
+      
         
       

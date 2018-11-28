@@ -1,6 +1,6 @@
 spring:
   application:
-    name: datamuse-viceman
+    name: datamuse
 eureka:
   client:
     service-url:

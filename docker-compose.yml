@@ -10,22 +10,19 @@ services:
      - 8080:8080
     depends_on:
       - eurekaserver-viceman
-    links:
-      - eurekaserver-viceman
   wordselector-viceman:
     build: ./wordselector-viceman
     ports:
      - 8081:8081
     depends_on:
      - eurekaserver-viceman
-    links:
-     - eurekaserver-viceman
   zuulgateway-viceman:
     build: ./zuulgateway-viceman
     ports: 
-     - 8090:8090
+     - 8079:8079
     depends_on:
      - eurekaserver-viceman
     links:
      - eurekaserver-viceman
+     
 
